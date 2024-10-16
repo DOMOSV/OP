@@ -250,15 +250,14 @@ def example_solve(_mode,answers,_Timeout=10):
             firstDigit = random.randint(a,b)
             secondDigit = random.randint(a,b)
             operations = ["+","-","*","/"]
-            randOperation = operations[random.randint(0,3)]
+            randOperation  = "/"
+            """= operations[random.randint(0,len(operations)-1)]"""
             result = 0
             if randOperation == "+":
                 result = firstDigit+secondDigit
             elif randOperation == "-":
                 result=firstDigit-secondDigit
             elif randOperation == "*":
-                firstDigit = random.randint(a, b)
-                secondDigit = random.randint(a, b)
                 result = firstDigit*secondDigit
             elif randOperation == "/":
                 secondDigit = int(random.randint(a,b)/2)
@@ -375,7 +374,7 @@ def write_log(_mode,_time,_Num_Of_Questions,_CorrectAnswers,_TimeToAnswer=""):
         my_file.write(f"Time to answer: {_TimeToAnswer}\n")
     my_file.close()
 def create_setting():
-    default_setting = "10,10,Old,0,2,20,2,20"
+    default_setting = "10,10,Old,off,2,20,2,20"
     try:
         with open("settings.txt","x") as file:
             file.write(default_setting)
@@ -411,8 +410,8 @@ def settings ():
                 user_TLim_Time = _settings_user_Digit_Check("Enter default time(for TLim mode): ")
                 user_Calc_Enter = _settings_user_Calc_Enter("Type of calculator?(Old or New):")
                 user_Min_Max_Def = _settings_user_min_max_check("Range of numbers for Def Exam?(min,max):")
-                user_Min_Max_TLim = _settings_user_min_max_check("Range of numbers for Def Exam?(min,max):")
-                user_Perm_Using = _setting_user_Perm_check("Permamently using(1 or 0):")
+                user_Min_Max_TLim = _settings_user_min_max_check("Range of numbers for TLim Exam?(min,max):")
+                user_Perm_Using = _setting_user_Perm_check("Permamently using(on/off):")
                 file.write(f"{user_Number_Questions},{user_TLim_Time},{user_Calc_Enter},{user_Perm_Using},{user_Min_Max_Def},{user_Min_Max_TLim}")
                 print("\nSettings updated!\n")
         except:
@@ -441,14 +440,18 @@ def _settings_user_min_max_check(promt=""):
         try:
             user_input = input(promt)
             l = [int(a) for a in user_input.split(",")]
+            temp_min,temp_max = l[0],l[1]
             if len(l)!=2:
                 print("Incorrect syntax")
                 continue
-            if l[0]<2 or l[1]<2:
+            if temp_min<2 or temp_max<2:
                 print("Digits cant be less 2")
                 continue
-            if l[0]>l[1]:
-                print("min > max")
+            if temp_min>=temp_max:
+                print("min >= max")
+                continue
+            if temp_min*2>temp_max:
+                print("max should be more then min at least 2 times")
                 continue
             else:
                 return user_input
@@ -457,21 +460,21 @@ def _settings_user_min_max_check(promt=""):
 def _setting_user_Perm_check(promt=""):
     while True:
         try:
-            user_input = int(input(promt))
-            if user_input==1:
-                return 1
-            if user_input==0:
-                return 0
-            print("Can be only 1 or 0")
+            user_input = input(promt)
+            if user_input=="on":
+                return "on"
+            if user_input=="off":
+                return "off"
+            print("Can be only on or off")
         except ValueError:
-            print("Not a digit")
+            print("can't be a digit")
 def is_permamently_using():
     with open("settings.txt") as f:
-        l = int([a for a in f.read().split(",")][3])
-    if l==1:
+        l = [a for a in f.read().split(",")][3]
+    if l=="on":
         return True
-    if l==0:
-        return False;
+    if l=="off":
+        return False
 def help():
     print(f"\nAvailible commands\n"
           f"1.Tablo - 1/T\n"

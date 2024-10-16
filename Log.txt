@@ -1,1 +1,14 @@
 Start Log   2024-10-15 23:51:46.236985
+2024-10-16 18:17:37.527061
+Chosen mode: Def
+Number of questions: 10
+Correct answers: 10
+Your time: 29.61
+Overage time for each question: 2.9 
+
+2024-10-16 18:18:02.446774
+Chosen mode: Def
+Number of questions: 10
+Correct answers: 2
+Your time: 16.41
+Overage time for each question: 1.6 
