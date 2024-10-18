@@ -12,3 +12,10 @@ Number of questions: 10
 Correct answers: 2
 Your time: 16.41
 Overage time for each question: 1.6 
+
+2024-10-17 13:30:43.408314
+Chosen mode: Def
+Number of questions: 5
+Correct answers: 4
+Your time: 6.13
+Overage time for each question: 1.2 

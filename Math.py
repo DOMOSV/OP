@@ -2,6 +2,7 @@ import random
 from threading import Timer
 import time
 import datetime
+import os
 def tablo(_x,_offset=0):
     """PERVAYA STROKA"""
     stroka = ""
@@ -186,7 +187,7 @@ def calculate ():
         result = firstDigit-secondDigit
     elif operation == "*":
         result = firstDigit * secondDigit
-    if result<0:
+    if result < 0:
         return "Negative result"
     if operation=="/" and firstDigit%secondDigit!=0:
         return "Not divided result"
@@ -250,8 +251,7 @@ def example_solve(_mode,answers,_Timeout=10):
             firstDigit = random.randint(a,b)
             secondDigit = random.randint(a,b)
             operations = ["+","-","*","/"]
-            randOperation  = "/"
-            """= operations[random.randint(0,len(operations)-1)]"""
+            randOperation  = operations[random.randint(0,len(operations)-1)]
             result = 0
             if randOperation == "+":
                 result = firstDigit+secondDigit
@@ -398,9 +398,9 @@ def settings ():
           f"Number of Questions: {_NQ}\n"
           f"TLimTime: {_Tlim}\n"
           f"Type of calculator: {_Calc}\n"
-          f"Range of numbers for Def Exam?(min,max):{_Min_Def},{_Max_Def}\n"
-          f"Range of numbers for TLim Exam?(min,max):{_Min_TLim},{_Max_TLim}\n"
-          f"Is setting permamently using in Exam?:{_PermUsing}\n")
+          f"Range of numbers for Def Exam?(min,max): {_Min_Def},{_Max_Def}\n"
+          f"Range of numbers for TLim Exam?(min,max): {_Min_TLim},{_Max_TLim}\n"
+          f"Is setting permamently using in Exam?: {_PermUsing}\n")
     _menu = input("Do you want change settings?(y/n):")
     print()
     if _menu == "y":
@@ -408,10 +408,10 @@ def settings ():
             with open("settings.txt","w") as file:
                 user_Number_Questions = _settings_user_Digit_Check("Enter number of questions: ")
                 user_TLim_Time = _settings_user_Digit_Check("Enter default time(for TLim mode): ")
-                user_Calc_Enter = _settings_user_Calc_Enter("Type of calculator?(Old or New):")
-                user_Min_Max_Def = _settings_user_min_max_check("Range of numbers for Def Exam?(min,max):")
-                user_Min_Max_TLim = _settings_user_min_max_check("Range of numbers for TLim Exam?(min,max):")
-                user_Perm_Using = _setting_user_Perm_check("Permamently using(on/off):")
+                user_Calc_Enter = _settings_user_Calc_Enter("Type of calculator?(Old or New): ")
+                user_Min_Max_Def = _settings_user_min_max_check("Range of numbers for Def Exam?(min,max): ")
+                user_Min_Max_TLim = _settings_user_min_max_check("Range of numbers for TLim Exam?(min,max): ")
+                user_Perm_Using = _setting_user_Perm_check("Permamently using(on/off): ")
                 file.write(f"{user_Number_Questions},{user_TLim_Time},{user_Calc_Enter},{user_Perm_Using},{user_Min_Max_Def},{user_Min_Max_TLim}")
                 print("\nSettings updated!\n")
         except:
@@ -494,10 +494,13 @@ def help():
           f"\tChanging different values for MathGame and Calc\n"
           f"7.Help - 7/H/Help\n"
           f"0.Exit - 0/Exit\n")
+def clear_cmd():
+    return os.system('cls')
 
 """                 MAIN                 """
 
 def main():
+    clear_cmd()
     create_log()
     create_setting()
     isTrue = True
