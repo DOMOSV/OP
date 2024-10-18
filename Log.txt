@@ -1,28 +1,91 @@
-Start Log   2024-10-15 23:51:46.236985
-2024-10-16 18:17:37.527061
+Start Log   2024-10-14 17:31:20.548660
+
+2024-10-15 01:47:07.870792
+Chosen mode: TLim
+Number of questions: 10
+Correct answers: 0
+Your time: 4.80
+Overage time for each question: 0.4 
+Time to answer: 5
+
+2024-10-15 03:12:05.191303
 Chosen mode: Def
 Number of questions: 10
-Correct answers: 10
-Your time: 29.61
-Overage time for each question: 2.9 
+Correct answers: 1
+Your time: 17.17
+Overage time for each question: 1.7 
 
-2024-10-16 18:18:02.446774
+2024-10-15 13:41:00.131489
 Chosen mode: Def
-Number of questions: 10
-Correct answers: 2
-Your time: 16.41
-Overage time for each question: 1.6 
+Number of questions: 1
+Correct answers: 1
+Your time: 3.11
+Overage time for each question: 3.0 
 
-2024-10-17 13:30:43.408314
+2024-10-18 12:24:00.085509
 Chosen mode: Def
 Number of questions: 5
 Correct answers: 4
-Your time: 6.13
-Overage time for each question: 1.2 
+Your time: 10.01
+Overage time for each question: 2.0 
 
-2024-10-18 14:12:00.597231
+2024-10-18 12:24:25.683463
+Chosen mode: TLim
+Number of questions: 5
+Correct answers: 4
+Your time: 18.85
+Overage time for each question: 3.6 
+Time to answer: 5
+
+2024-10-18 12:27:46.443556
 Chosen mode: Def
 Number of questions: 5
-Correct answers: 1
-Your time: 4.45
-Overage time for each question: 0.8 
+Correct answers: 5
+Your time: 8.23
+Overage time for each question: 1.6 
+
+2024-10-18 12:28:07.420012
+Chosen mode: TLim
+Number of questions: 5
+Correct answers: 5
+Your time: 11.29
+Overage time for each question: 2.2 
+Time to answer: 5
+
+2024-10-18 12:32:58.798516
+Chosen mode: TLim
+Number of questions: 2
+Correct answers: 0
+Your time: 9.99
+Overage time for each question: 4.5 
+Time to answer: 2
+
+2024-10-18 21:38:08.180097
+Chosen mode: TLim
+Number of questions: 10
+Correct answers: 7
+Your time: 42.11
+Overage time for each question: 4.2 
+Time to answer: 7
+
+2024-10-18 22:30:07.700117
+Chosen mode: TLim
+Number of questions: 10
+Correct answers: 8
+Your time: 41.15
+Overage time for each question: 4.1 
+Time to answer: 7
+
+2024-10-18 22:41:04.722954
+Chosen mode: Def
+Number of questions: 10
+Correct answers: 0
+Your time: 5.84
+Overage time for each question: 0.5 
+
+2024-10-18 22:41:41.534822
+Chosen mode: Def
+Number of questions: 10
+Correct answers: 7
+Your time: 28.47
+Overage time for each question: 2.8 

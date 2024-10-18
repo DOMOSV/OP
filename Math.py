@@ -381,7 +381,7 @@ def example_solve(_mode,answers,_Timeout=10):
 def create_log():
     try:
         with open("Log.txt","x") as file:
-            file.write(f"Start Log   {datetime.datetime.now()}\n")
+            file.write(f"Start Log   {datetime.datetime.now()}\n\n")
             print("Log created!")
     except FileExistsError:
         pass
@@ -506,23 +506,28 @@ def help():
     print(f"\nAvailible commands\n"
           f"1.Tablo - 1/T\n"
           f"\tDisplaying digits\n"
-          f"2.Sand Clock - 2/P\n"
+          f"2.Sand Clock - 2/SC\n"
           f"\tDisplaying sand clocks with user sizes\n"
           f"3.Calculate - 3/C:\n"
           f"\tAvailible operations: +,-,/,*\n"
           f"\tResult or digits CANT BE NEGATIVE\n"
           f"\tType of input in New Calculator: FirstDigit Operation SecondDigit\n"
-          f"4.MathGame - 4/Ex/MG\n"
+          f"4.Math Game - 4/Ex/MG\n"
+          f"\tGame based on Calc with two modes: Default and TimeLimit\n"
           f"\tAvailible operations: +,-,/,*\n"
           f"\tResult or digits CANT BE NEGATIVE\n"
-          f"5.ShowLog - 5/SS\n"
+          f"5.Show Log - 5/SS/SL\n"
           f"\tDisplaying information about previous MathGames\n"
           f"6.Settings - 6/Set\n"
           f"\tChanging different values for MathGame and Calc\n"
           f"7.Help - 7/H/Help\n"
+          f"\tDisplays information about availible commands\n"
           f"8.Clear - 8/Clear\n"
-          f"\t Clearing cmd console\n"
-          f"0.Exit - 0/Exit\n")
+          f"\tClearing console\n"
+          f"9.Show Plot - 9/SP/graphic\n"
+          f"\tShows a graph with past results of mathematical games\n"
+          f"0.Exit - 0/Exit\n"
+          f"\tKilling programm\n")
 def clear_cmd():
     return os.system('cls')
 def graphics():
@@ -557,7 +562,7 @@ def start_project():
 
 def main():
     isTrue = True
-    print(f"Menu\n1.Tablo\n2.Sand Clock\n3.Calculate\n4.MathGame\n5.ShowLog\n6.Settings\n7.Help\n8.Clear\n9.ShowDynamic\n0.Exit\n")
+    print(f"Menu\n1.Tablo\n2.Sand Clock\n3.Calculate\n4.Math Game\n5.Show Log\n6.Settings\n7.Help\n8.Clear\n9.Show Plot\n0.Exit\n")
     while isTrue:
         menu = input("Enter command: ")
         if menu=='T' or menu=="1":
@@ -567,7 +572,7 @@ def main():
                 tablo(x)
             else:
                 print("Not digit!")
-        elif menu == "P" or menu=="2":
+        elif menu == "SC" or menu=="2":
             x = input("Write any odd digit: ")
             if x.isdigit():
                 print(sand_clock(x))
@@ -647,15 +652,15 @@ def main():
                     answers.clear()
             else:
                 print(f"Wrong mode or number!")
-        elif menu=="SS" or menu=="5":
+        elif menu=="SS" or menu=="5" or menu=="SL":
             show_log()
         elif menu=="Set" or menu== "6":
             settings()
         elif menu == "H" or menu=="7" or menu=="Help":
             help()
-        elif menu == "Clear" or menu == "8":
+        elif menu == "Clear" or menu == "8" or menu == "clear":
             clear_cmd()
-        elif menu=="graphic" or menu=="SD" or menu == "9":
+        elif menu=="graphic" or menu=="SP" or menu == "9":
             graphics()
         elif menu=="0" or menu=="Exit":
             menu = input("You sure you want to close program?(Y/y to close): ")
