@@ -3,7 +3,10 @@ from threading import Timer
 import time
 import datetime
 import os
-def tablo(_x,_offset=0):
+import matplotlib.pyplot as plt
+import re
+import numpy as np
+def tablo(_x,_offset=0,operation = ""):
     """PERVAYA STROKA"""
     stroka = ""
     for i in str(_x):
@@ -517,18 +520,44 @@ def help():
           f"6.Settings - 6/Set\n"
           f"\tChanging different values for MathGame and Calc\n"
           f"7.Help - 7/H/Help\n"
+          f"8.Clear - 8/Clear\n"
+          f"\t Clearing cmd console\n"
           f"0.Exit - 0/Exit\n")
 def clear_cmd():
     return os.system('cls')
+def graphics():
+    _list_all_answ = []
+    _list_cor_answ = []
+    percents_correct = []
+    to_percent_value = 100
+    with open("Log.txt") as file:
+        for line in file:
+            cor_answ = re.match(r"Correct answers: (\d+)", line)
+            num_quests = re.match(r"Number of questions: (\d+)", line)
+            if num_quests:
+                _list_all_answ.append(int(num_quests.group(1)))
+            if cor_answ:
+                _list_cor_answ.append(int(cor_answ.group(1)))
+    for i in range(len(_list_cor_answ)):
+        percents_correct.append(int((_list_cor_answ[i] / _list_all_answ[i]) * to_percent_value))
+    l = [int(a) for a in range(len(percents_correct))]
+    plt.plot(l,percents_correct,color="purple",marker=".",markersize="7")
+    plt.xticks(l)
+    plt.yticks(np.arange(0,101,10))
+    plt.xlabel("Ex number")
+    plt.ylabel("% completion")
+    plt.title("Stat")
+    plt.show()
+def start_project():
+    clear_cmd()
+    create_log()
+    create_setting()
 
 """                 MAIN                 """
 
 def main():
-    clear_cmd()
-    create_log()
-    create_setting()
     isTrue = True
-    print(f"Menu\n1.Tablo\n2.Sand Clock\n3.Calculate\n4.MathGame\n5.ShowLog\n6.Settings\n7.Help\n0.Exit\n")
+    print(f"Menu\n1.Tablo\n2.Sand Clock\n3.Calculate\n4.MathGame\n5.ShowLog\n6.Settings\n7.Help\n8.Clear\n9.ShowDynamic\n0.Exit\n")
     while isTrue:
         menu = input("Enter command: ")
         if menu=='T' or menu=="1":
@@ -597,26 +626,6 @@ def main():
                     file = open("settings.txt", "r")
                     TimeToAnswer = [a for a in file.read().split(",")][1]
                     file.close()
-                """if TimeToAnswer=="":
-                    start_time = time.time()
-                    for i in range(0, int(NumOfQuest)):
-                        if (example_solve(mode) == "Correct"):
-                            CorAnsw += 1
-                        else:
-                            incAnsw.append(i+1)
-                    total_time = time.time()-start_time
-                    write_log(_mode=mode, _time=total_time, _Num_Of_Questions=NumOfQuest, _CorrectAnswers=CorAnsw,_TimeToAnswer=TimeToAnswer)
-                    print(f"You answered correctly on: {CorAnsw}/{NumOfQuest}! ",end="")
-                    tempMenu = input("Show correct answers?(Y/y to show) ")
-                    if (tempMenu.lower() == 'y'):
-                        print("Correct answers: ", end="")
-                        print(", ".join(map(str,answers)))
-                        if len(incAnsw) > 0:
-                            print(f"Numbers of incorrect answers: {", ".join(map(str,incAnsw))}")
-                        else:
-                            print(f"Good work!")
-                        answers.clear()"""
-                #else:
                 start_time = time.time()
                 for i in range(0,int(NumOfQuest)):
                     if(example_solve(mode,answers,int(TimeToAnswer))=="Correct"):
@@ -644,15 +653,16 @@ def main():
             settings()
         elif menu == "H" or menu=="7" or menu=="Help":
             help()
+        elif menu == "Clear" or menu == "8":
+            clear_cmd()
+        elif menu=="graphic" or menu=="SD" or menu == "9":
+            graphics()
         elif menu=="0" or menu=="Exit":
             menu = input("You sure you want to close program?(Y/y to close): ")
             if (menu.lower() == 'y'):
                 isTrue = False
         else:
             print(f"No such command: '{menu}'! To check commands enter 'Help'")
-            """menu = input("Do you want to continue?(Y/y to continue): ")
-            if (menu.lower()!='y'):
-                isTrue=False"""
-
+start_project()
 main()
 input ("Press Enter to close...")
