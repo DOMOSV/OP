@@ -174,7 +174,7 @@ def calculate ():
     elif type == "New":
         expres = _calc_check_expression("Enter the expression: ")
         firstDigit,secondDigit,operation,result = int(expres[0]),int(expres[2]),expres[1],0
-    if firstDigit < 0 or secondDigit < 0:
+    if firstDigit < 0 or secondDigit < 0 :
         return "Digits cant be negative!"
     try:
         if operation == "/":
@@ -229,7 +229,6 @@ def _calc_check_expression(promt=""):
             if _list[1] != "/" and _list[1] != "-" and _list[1] != "+"  and _list[1] != "*":
                 print("Incorrect operation")
                 continue
-            fdig,secdig = int(_list[0]),int(_list[2])
             return _list
         except ValueError:
             print("Not a digit or incorrect syntax")
@@ -246,6 +245,15 @@ def _calc_check_operation(promt=""):
             return user_input
         except:
             pass
+def _calc_fact(n):
+    gg = 0
+    if n==0:
+        return 1
+    if n==1:
+        return 1
+    if n>1:
+        gg = n*_calc_fact(n-1)
+        return gg
 def example_solve(_mode,answers,_Timeout=10):
         #Default mode
         with open("settings.txt","r") as f:
