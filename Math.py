@@ -182,10 +182,18 @@ def calculate ():
     except ZeroDivisionError:
         return "Division on zero"
     if operation == "+":
+        if len(str(firstDigit))<len(str(secondDigit)):
+            tempDig = firstDigit
+            firstDigit = secondDigit
+            secondDigit = tempDig
         result = firstDigit+secondDigit
     elif operation == "-":
         result = firstDigit-secondDigit
     elif operation == "*":
+        if len(str(firstDigit)) < len(str(secondDigit)):
+            tempDig = firstDigit
+            firstDigit = secondDigit
+            secondDigit = tempDig
         result = firstDigit * secondDigit
     if result < 0:
         return "Negative result"
@@ -218,7 +226,7 @@ def _calc_check_expression(promt=""):
             if (len(_list))!=3:
                 print("Incorrect input")
                 continue
-            if user_input != "/" and user_input != "-" and user_input != "+"  and user_input != "*":
+            if _list[1] != "/" and _list[1] != "-" and _list[1] != "+"  and _list[1] != "*":
                 print("Incorrect operation")
                 continue
             fdig,secdig = int(_list[0]),int(_list[2])
@@ -254,10 +262,18 @@ def example_solve(_mode,answers,_Timeout=10):
             randOperation  = operations[random.randint(0,len(operations)-1)]
             result = 0
             if randOperation == "+":
+                if len(str(firstDigit)) < len(str(secondDigit)):
+                    tempDig = firstDigit
+                    firstDigit = secondDigit
+                    secondDigit = tempDig
                 result = firstDigit+secondDigit
             elif randOperation == "-":
                 result=firstDigit-secondDigit
             elif randOperation == "*":
+                if len(str(firstDigit)) < len(str(secondDigit)):
+                    tempDig = firstDigit
+                    firstDigit = secondDigit
+                    secondDigit = tempDig
                 result = firstDigit*secondDigit
             elif randOperation == "/":
                 secondDigit = int(random.randint(a,b)/2)
@@ -629,5 +645,6 @@ def main():
             """menu = input("Do you want to continue?(Y/y to continue): ")
             if (menu.lower()!='y'):
                 isTrue=False"""
+
 main()
 input ("Press Enter to close...")
