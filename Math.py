@@ -506,25 +506,25 @@ def help():
     print(f"\nAvailible commands\n"
           f"1.Tablo - 1/T\n"
           f"\tDisplaying digits\n"
-          f"2.Sand Clock - 2/SC\n"
-          f"\tDisplaying sand clocks with user sizes\n"
-          f"3.Calculate - 3/C:\n"
+          # f"2.Sand Clock - 2/SC\n"
+          # f"\tDisplaying sand clocks with user sizes\n"
+          f"2.Calculate - 2/C:\n"
           f"\tAvailible operations: +,-,/,*\n"
           f"\tResult or digits CANT BE NEGATIVE\n"
           f"\tType of input in New Calculator: FirstDigit Operation SecondDigit\n"
-          f"4.Math Game - 4/Ex/MG\n"
+          f"3.Math Game - 3/Ex/MG\n"
           f"\tGame based on Calc with two modes: Default and TimeLimit\n"
           f"\tAvailible operations: +,-,/,*\n"
           f"\tResult or digits CANT BE NEGATIVE\n"
-          f"5.Show Log - 5/SS/SL\n"
+          f"4.Show Log - 4/SS/SL\n"
           f"\tDisplaying information about previous MathGames\n"
-          f"6.Settings - 6/Set\n"
+          f"5.Settings - 5/Set\n"
           f"\tChanging different values for MathGame and Calc\n"
-          f"7.Help - 7/H/Help\n"
+          f"6.Help - 6/H/Help\n"
           f"\tDisplays information about availible commands\n"
-          f"8.Clear - 8/Clear\n"
+          f"7.Clear - 7/Clear\n"
           f"\tClearing console\n"
-          f"9.Show Plot - 9/SP/graphic\n"
+          f"8.Show Plot - 8/SP/graphic\n"
           f"\tShows a graph with past results of mathematical games\n"
           f"0.Exit - 0/Exit\n"
           f"\tKilling programm\n")
@@ -562,7 +562,7 @@ def start_project():
 
 def main():
     isTrue = True
-    print(f"Menu\n1.Tablo\n2.Sand Clock\n3.Calculate\n4.Math Game\n5.Show Log\n6.Settings\n7.Help\n8.Clear\n9.Show Plot\n0.Exit\n")
+    print(f"Menu\n1.Tablo\n2.Calculate\n3.Math Game\n4.Show Log\n5.Settings\n6.Help\n7.Clear\n8.Show Plot\n0.Exit\n")
     while isTrue:
         menu = input("Enter command: ")
         if menu=='T' or menu=="1":
@@ -578,9 +578,9 @@ def main():
                 print(sand_clock(x))
             else:
                 print("Not digit!")
-        elif menu == "C" or menu=="3":
+        elif menu == "C" or menu=="2":
             print(calculate())
-        elif menu == "Ex" or menu=="4" or menu=="MG":
+        elif menu == "Ex" or menu=="3" or menu=="MG":
             answers = []
             incAnsw = []
             CorAnsw = 0
@@ -652,15 +652,15 @@ def main():
                     answers.clear()
             else:
                 print(f"Wrong mode or number!")
-        elif menu=="SS" or menu=="5" or menu=="SL":
+        elif menu=="SS" or menu=="4" or menu=="SL":
             show_log()
-        elif menu=="Set" or menu== "6":
+        elif menu=="Set" or menu== "5":
             settings()
-        elif menu == "H" or menu=="7" or menu=="Help":
+        elif menu == "H" or menu=="6" or menu=="Help":
             help()
-        elif menu == "Clear" or menu == "8" or menu == "clear":
+        elif menu == "Clear" or menu == "7" or menu == "clear":
             clear_cmd()
-        elif menu=="graphic" or menu=="SP" or menu == "9":
+        elif menu=="graphic" or menu=="SP" or menu == "8":
             graphics()
         elif menu=="0" or menu=="Exit":
             menu = input("You sure you want to close program?(Y/y to close): ")
