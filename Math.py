@@ -232,6 +232,8 @@ def _calc_check_expression(promt=""):
             if _list[1] != "/" and _list[1] != "-" and _list[1] != "+"  and _list[1] != "*":
                 print("Incorrect operation")
                 continue
+            if int(_list[0]) or int(_list[2]):
+                pass
             return _list
         except ValueError:
             print("Not a digit or incorrect syntax")
@@ -484,6 +486,8 @@ def _settings_user_min_max_check(promt=""):
                 return user_input
         except ValueError:
             print("Not a digits")
+        except:
+            print("Wrong syntax")
 def _setting_user_Perm_check(promt=""):
     while True:
         try:

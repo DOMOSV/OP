@@ -89,3 +89,97 @@ Number of questions: 10
 Correct answers: 7
 Your time: 28.47
 Overage time for each question: 2.8 
+
+2024-10-21 22:09:35.046047
+Chosen mode: Def
+Number of questions: 5
+Correct answers: 5
+Your time: 19.95
+Overage time for each question: 3.8 
+
+2024-10-21 22:10:20.442664
+Chosen mode: TLim
+Number of questions: 5
+Correct answers: 4
+Your time: 17.37
+Overage time for each question: 3.4 
+Time to answer: 8
+
+2024-10-21 22:10:47.248564
+Chosen mode: Def
+Number of questions: 5
+Correct answers: 5
+Your time: 14.12
+Overage time for each question: 2.8 
+
+2024-10-21 22:11:04.291493
+Chosen mode: TLim
+Number of questions: 5
+Correct answers: 5
+Your time: 11.26
+Overage time for each question: 2.2 
+Time to answer: 8
+
+2024-10-21 22:11:31.030817
+Chosen mode: TLim
+Number of questions: 5
+Correct answers: 4
+Your time: 10.82
+Overage time for each question: 2.0 
+Time to answer: 8
+
+2024-10-21 22:12:03.667907
+Chosen mode: TLim
+Number of questions: 5
+Correct answers: 3
+Your time: 18.45
+Overage time for each question: 3.6 
+Time to answer: 8
+
+2024-10-21 22:12:39.288776
+Chosen mode: TLim
+Number of questions: 5
+Correct answers: 4
+Your time: 18.32
+Overage time for each question: 3.6 
+Time to answer: 8
+
+2024-10-21 22:13:10.421536
+Chosen mode: TLim
+Number of questions: 5
+Correct answers: 5
+Your time: 11.07
+Overage time for each question: 2.2 
+Time to answer: 8
+
+2024-10-21 22:13:49.611864
+Chosen mode: TLim
+Number of questions: 5
+Correct answers: 4
+Your time: 9.58
+Overage time for each question: 1.8 
+Time to answer: 8
+
+2024-10-21 22:14:10.339151
+Chosen mode: TLim
+Number of questions: 5
+Correct answers: 5
+Your time: 13.31
+Overage time for each question: 2.6 
+Time to answer: 8
+
+2024-10-21 22:14:38.183070
+Chosen mode: TLim
+Number of questions: 5
+Correct answers: 5
+Your time: 12.17
+Overage time for each question: 2.4 
+Time to answer: 8
+
+2024-10-21 22:16:49.427334
+Chosen mode: TLim
+Number of questions: 5
+Correct answers: 4
+Your time: 15.36
+Overage time for each question: 3.0 
+Time to answer: 8
